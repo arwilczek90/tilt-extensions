@@ -1,0 +1,3 @@
+def onepassword_secret_value(secret_url, account, ):
+    local(['op', 'signin', '--account', account])
+    return local(['op', 'read', secret_url])
