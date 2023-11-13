@@ -1,11 +1,11 @@
 def onepassword_secret_value(secret_url, account_url):
     local(['op', 'signin', '--account', account_url])
-    return local(['op', 'read', secret_url], echo_off=True)
+    return local(['op', 'read', secret_url], echo_off=True, quiet=True)
 
 def onepassword_secret_values(secret_url, values, account_url):
     local(['op', 'signin', '--account', account_url])
     ret_vals = {}
     for value in values:
-        secret_value = local(['op', 'read', "{}/{}".format(secret_url, value)], echo_off=True)
+        secret_value = local(['op', 'read', "{}/{}".format(secret_url, value)], echo_off=True, quiet=True)
         ret_vals[value] = secret_value
     return ret_vals
