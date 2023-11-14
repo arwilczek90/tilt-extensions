@@ -23,7 +23,7 @@ test-password
 
 ## onepassword_secret_values
 
-Allows you to fetch multiple secret values from one item in a 1 password vault.
+Allows you to fetch multiple secret values from one item in a 1 password vault. (not the notes field or the password field if type is password)
 
 ```
 onepasswordUrl = 'something.1password.com
@@ -33,7 +33,7 @@ load('ext://one-password', 'onepassword_secret_values')
 
 
 test_values = ['password','username']
-test_passwords = onepassword_secret_values('op://Some Vault/test-password', test_values, onepasswordUrl)
+test_passwords = onepassword_secret_values('secret_uid', onepasswordUrl)
 print(test_passwords)
 ```
 
